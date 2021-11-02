@@ -1,7 +1,7 @@
 # Thorium-Win NOTE:INCOMPLETE, mostly just a copy of readme from Thorium, needs updating for windows build flow. Shell scripts need updating for windows as batch files.
 Chromium fork for windows named after radioactive element No. 90, windows builds of https://github.com/Alex313031/Thorium
 
-<img src="https://github.com/Alex313031/Thorium/blob/main/logos/product_logo_192.png">
+<img src="https://github.com/Alex313031/Thorium/blob/main/logos/chrome_app_icon_192.png">
 
 ## Chromium fork for windows named after radioactive element No. 90, windows builds of https://github.com/Alex313031/Thorium
 - Always built with latest x64 tip-o-tree "Trunk" build of chromium \

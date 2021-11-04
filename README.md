@@ -1,4 +1,5 @@
 # Thorium-Win NOTE: Scripts need to be updated/modified to batch files for use on windows.
+Commands in trunk.sh can be used, modified for the location of files. Commands in setup.sh cannot be used, and instead just copy/paste the folders the way the script would instruct linux to. Commands in clean.sh can be used EXCEPT the "find . -name", and one must substitute "rm -r -v" for "rmdir /s" on windows. Future work will convert the commands to windows exquivalents and rename the scripts to .bat.
 Chromium fork for windows named after radioactive element No. 90, windows builds of https://github.com/Alex313031/Thorium
 
 <img src="https://github.com/Alex313031/Thorium/blob/main/logos/chrome_app_icon_192.png">

@@ -1,8 +1,6 @@
-#!/bin/bash
+mkdir C:\chromium\src\out\thorium &&
 
-mkdir -v -p $HOME/chromium/src/out/thorium/ &&
-
-cp -r -v build/. $HOME/chromium/src/build/ &&
+cp -r -v build\. C:\chromium\src\build &&
 cp -r -v chrome/. $HOME/chromium/src/chrome/ &&
 cp -r -v components/. $HOME/chromium/src/components &&
 cp -r -v content/. $HOME/chromium/src/content/ &&
@@ -13,6 +11,6 @@ cp -r -v v8/. $HOME/chromium/src/v8/ &&
 cp -v chrome-devtools/chrome-devtools.svg $HOME/chromium/src/out/thorium/ &&
 cp -v content_shell/. $HOME/chromium/src/out/thorium/ &&
 
-cd $HOME/chromium/src &&
+cd C:\chromium\src &&
 
 exit 0

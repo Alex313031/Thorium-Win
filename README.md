@@ -22,7 +22,7 @@ Chromium fork for windows named after radioactive element No. 90, windows builds
 
 &nbsp;&nbsp;&ndash; args.gn exclude API Keys (you can get them yourself) and the pgo profile path is different for each chromium version. (See below.)
 
-&nbsp;&nbsp;In general follow build instructions at https://chromium.googlesource.com/chromium/src/+/refs/heads/main/docs/linux/build_instructions.md and API Keys (if desired) at https://www.chromium.org/developers/how-tos/api-keys
+&nbsp;&nbsp;In general follow build instructions at https://chromium.googlesource.com/chromium/src/+/refs/heads/main/docs/windows_build_instructions.md and API Keys (if desired) at https://www.chromium.org/developers/how-tos/api-keys
 
 # Building
 _**The scripts assume the Chromium source is at $HOME/chromiums/src/. You may have to 'sudo chmod +x' the scripts to make them executable.**_ 

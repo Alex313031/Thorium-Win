@@ -19,7 +19,7 @@ Chromium fork for windows named after radioactive element No. 90, windows builds
 > - Disable Google API Key warning (you can still use API Keys to enable sync), from Ungoogled Chromium.
 > - Includes DuckDuckGo and Ask.com in all locales, along with normal search engines, from Ubuntu.
 > - Logo and Branding/Naming changed to Thorium logo, Thorium name, and "Alex313031" being appended to "The Chromium Authors" in credits, etc.
-> - Includes installer patches and files to include ChromeDriver and content_shell, you will need to make shortcuts to these if you wish. (Thorium is installed to C:\Users\$USERNAME\AppData\Local\Chromium\Application\)
+> - Includes installer patches and files to include ChromeDriver and content_shell, you will need to make shortcuts to these if you wish. (Thorium is installed to C:\Users\$USERNAME\AppData\Local\Chromium\Application\ )
 
 &nbsp;&nbsp;&ndash; args.gn exclude API Keys (you can get them yourself) and the pgo profile path is different for each chromium version. (See below.)
 

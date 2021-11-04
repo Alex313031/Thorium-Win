@@ -24,7 +24,7 @@ chrome_100_percent.pak: %(VersionDir)s\
 chrome_child.dll: %(VersionDir)s\
 chrome_elf.dll: %(VersionDir)s\
 chrome_pwa_launcher.exe: %(VersionDir)s\
-content_shell: %(VersionDir)s\
+content_shell.exe: %(VersionDir)s\
 content_shell.pak: %(VersionDir)s\
 d3dcompiler_47.dll: %(VersionDir)s\
 eventlog_provider.dll: %(VersionDir)s\

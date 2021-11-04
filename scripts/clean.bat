@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # run from within out/Default or wherever you put your build, or cd there first
 # i.e. cd /home/alex/bin/chromium-dev/
 

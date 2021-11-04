@@ -27,7 +27,7 @@ Chromium fork for windows named after radioactive element No. 90, windows builds
 # Building
 _**The batch scripts assume the Chromium source is at C:\chromiums\src\.**_ 
 - After initial download of Chromium source code, run (from where you cloned this repo) `trunk.bat`. This will update and sync the sources and at the end it will download the PGO profile for chromium. The file will be downloaded to *C:\chromium\src\chrome\build\pgo_profiles\&#42;.profdata* with the actual file name looking something like 'chrome-linux-main-1632505958-ddbb37bcdfa7dbd7b10cf3a9b6a5bc45e7a958a6.profdata', which should be added to the end of args.gn as per below.
-- Then (from where you cloned this repo) run `setup.bat`. This will copy all the files and patches to the needed locations and drop you to *\\chromium\src*.
+- Then (from where you cloned this repo) run `setup.bat`. This will copy all the files and patches to the needed locations and drop you to *C:\chromium\src*.
 - Run `gn args out/thorium` and the contents of 'args.gn' in this repo should be copy/pasted into the editor. *--Include your api keys here at the top or leave blank, and edit the last line to point to the actual path and file name of '&#42;.profdata'*
 - 'args.list' contains an alphabetical list with descriptions of all possible build arguments.
 - To build, run `autoninja -j8 -C out/thorium chrome content_shell chromedriver -d stats` *The -j# can be changed to limit or increase the number of jobs (generally should be the number of CPU cores on your machine), and the -d stats at the end just shows better verbose stats during compiling. Chromedriver is optional and builds chromedriver, the selenium compatible browser fuzzing library.*

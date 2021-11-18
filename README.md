@@ -8,6 +8,7 @@ Chromium fork for windows named after radioactive element No. 90, windows builds
 ## Chromium fork for windows named after radioactive element No. 90, windows builds of https://github.com/Alex313031/Thorium
 - Always built with latest x64 tip-o-tree "Trunk" build of chromium \
 - Intended to behave the most like Google Chrome, with differences listed below. \
+- I release Thorium as an installer and a portable .zip. Intructions are in readme in zip file.
 
 &nbsp;&nbsp;&ndash; Includes Widevine, FFmpeg, Chrome Plugins, as well as thinLTO and PGO compiler optimizations. It is built with SSE3 and AVX, so it won't launch on CPU's below 2nd gen Core or AMD FX, but benefits from Advanced Vector EXtensions. You can disable this and use regular SSE3 like Chromium and Chrome. (See below.)
 

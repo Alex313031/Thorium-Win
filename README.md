@@ -1,4 +1,4 @@
-# Thorium-Win IMPORTANT: Use right click > properties and change compatability mode to Windows 7 or 8 when running on Windows 10 or 11, this is an upstream bug and will be fixed at a later date. NOTE: Scripts need to be updated/modified to batch files for use on windows. See below.
+# Thorium-Win IMPORTANT: This repo hosts windows builds, but the source code for windows was merged with the main Thorium repo, so disregard the out of date stuff here if you want to build for yourself.
 
 Commands in trunk.sh can be used, modified for the location of files. Commands in setup.sh cannot be used, and instead just copy/paste the folders the way the script would instruct linux to. Commands in clean.sh can be used EXCEPT the "find . -name", and one must substitute "rm -r -v" for "rmdir /s" on windows. Future work will convert the commands to windows equivalents and rename the scripts to .bat.  
 Chromium fork for windows named after radioactive element No. 90, windows builds of https://github.com/Alex313031/Thorium

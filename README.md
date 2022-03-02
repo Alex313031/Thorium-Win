@@ -1,8 +1,7 @@
-# Thorium-Win IMPORTANT: This repo hosts windows builds, but the source code for windows was merged with the main Thorium repo, so disregard the out of date stuff here if you want to build for yourself.
+# Thorium-Win NEW: AVX2 Builds are now being served at https://github.com/Alex313031/Thorium-AVX2
 
-ALSO: I know about the icon issue that has been plaguing my last few releases, where the icon on the taskbar is a yellow "warning icon" rather than the proper Thorium logo. I am working on a fix as we speak!
+IMPORTANT: This repo hosts windows builds, but the source code for windows was merged with the main Thorium repo, so disregard the out of date stuff here if you want to build for yourself.
 
-Commands in trunk.sh can be used, modified for the location of files. Commands in setup.sh cannot be used, and instead just copy/paste the folders the way the script would instruct linux to. Commands in clean.sh can be used EXCEPT the "find . -name", and one must substitute "rm -r -v" for "rmdir /s" on windows. Future work will convert the commands to windows equivalents and rename the scripts to .bat.  
 Chromium fork for windows named after radioactive element No. 90, windows builds of https://github.com/Alex313031/Thorium
 
 <img src="https://github.com/Alex313031/Thorium/blob/main/logos/NEW/chrome_app_icon_192.png">

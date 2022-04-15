@@ -14,3 +14,7 @@ Chromium fork for windows named after radioactive element No. 90, windows builds
 - I release Thorium as an installer and a portable .zip. Intructions are in readme in zip file.
 
 AVX2 Builds are now being served at https://github.com/Alex313031/Thorium-AVX2
+
+*Thanks for using Thorium!*
+
+<img src="https://github.com/Alex313031/Thorium/blob/main/logos/STAGING/Thorium90_502.jpg" width="200">

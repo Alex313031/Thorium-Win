@@ -6,7 +6,7 @@ IMPORTANT: This repo hosts windows builds, but the source code for windows was m
 
 <img src="https://github.com/Alex313031/Thorium/blob/main/logos/NEW/chrome_app_icon_192.png">
 
-## Chromium fork for Windows named after radioactive element No. 90, Windows builds of https://github.com/Alex313031/Thorium <img src="https://github.com/Alex313031/Thorium/blob/main/logos/NEW/bulb_32.png">
+## Chromium fork for Windows named after radioactive element No. 90; Windows builds of https://github.com/Alex313031/Thorium <img src="https://github.com/Alex313031/Thorium/blob/main/logos/NEW/bulb_32.png">
 - Always built with latest x64 tip-o-tree "Trunk" build of chromium \
 - Intended to behave the most like Google Chrome, with differences listed below. \
 - I release Thorium as an installer and a portable .zip. Intructions are in readme in zip file.

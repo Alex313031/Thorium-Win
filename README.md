@@ -2,7 +2,7 @@
 
 # Thorium-Win NEW: AVX2 Builds are now being served at https://github.com/Alex313031/Thorium-AVX2
 
-IMPORTANT: This repo hosts windows builds, but the source code for windows was merged with the main Thorium repo, so disregard the out of date stuff here if you want to build for yourself. Follow instructions at https://github.com/Alex313031/Thorium in the building section.
+IMPORTANT: This repo hosts windows builds. For building yourself, follow instructions at https://github.com/Alex313031/Thorium/blob/main/misc/WIN_INSTRUCTIONS (if building natively on Windows), OR https://github.com/Alex313031/Thorium/blob/main/misc/WIN_CROSS_BUILD_INSTRUCTIONS (if cross building for Windows on Linux).
 
 <img src="https://github.com/Alex313031/Thorium/blob/main/logos/NEW/chrome_app_icon_192.png">
 

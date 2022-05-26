@@ -4,9 +4,10 @@
 
 IMPORTANT: This repo hosts windows builds. For building yourself, follow instructions at https://github.com/Alex313031/Thorium/blob/main/misc/WIN_INSTRUCTIONS (if building natively on Windows), OR https://github.com/Alex313031/Thorium/blob/main/misc/WIN_CROSS_BUILD_INSTRUCTIONS (if cross building for Windows on Linux).
 
-<img src="https://github.com/Alex313031/Thorium/blob/main/logos/NEW/chrome_app_icon_192.png">
+<img src="https://github.com/Alex313031/Thorium/blob/main/logos/NEW/chromeos/chrome_app_icon_192.png">
 
-## Chromium fork for Windows named after radioactive element No. 90; Windows builds of https://github.com/Alex313031/Thorium <img src="https://github.com/Alex313031/Thorium/blob/main/logos/NEW/bulb_32.png">
+## Chromium fork for Windows named after radioactive element No. 90; Windows builds of https://github.com/Alex313031/Thorium <img src="https://github.com/Alex313031/Thorium/blob/main/logos/NEW/bulb_light.svg#gh-dark-mode-only"> <img src="https://github.com/Alex313031/Thorium/blob/main/logos/NEW/bulb_dark.svg#gh-light-mode-only">
+
 - Always built with latest x64 tip-o-tree "Trunk" build of chromium \
 - Intended to behave the most like Google Chrome, with differences listed below. \
 - I release Thorium as an installer and a portable .zip. Intructions are in readme in zip file.

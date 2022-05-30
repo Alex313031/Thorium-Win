@@ -835,7 +835,7 @@ config("compiler") {
     rustflags += [ "-Cembed-bitcode=no" ]
   }
   if (is_official_build) {
-    rustflags += [ "-Ccodegen-units=1", "-Copt-level=3", "-Ctarget-feature=+sse4", ]
+    rustflags += [ "-Ccodegen-units=1", "-Copt-level=3", "-Ctarget-feature=+sse4.2", ]
   }
 }
 
@@ -1947,9 +1947,9 @@ config("no_incompatible_pointer_warnings") {
     "-mllvm", "-unroll-runtime-multi-exit",
     "-mllvm", "-aggressive-ext-opt",
     "/O3",
-    "-msse4",
+    "-msse4.2",
     "/clang:-O3",
-    "/clang:-msse4",
+    "/clang:-msse4.2",
     "-Xclang", "-O3",
   ]
 
@@ -1999,8 +1999,8 @@ if (is_win) {
     "-mllvm", "-aggressive-ext-opt",
     "/O3",
     "/clang:-O3",
-    "-msse4",
-    "/clang:-msse4",
+    "-msse4.2",
+    "/clang:-msse4.2",
     "-Xclang", "-O3",
   ]
 
@@ -2163,9 +2163,9 @@ config("optimize") {
     cflags = [ "-O3" ] + common_optimize_on_cflags
   }
   if (optimize_for_size) {
-    rustflags = [ "-Copt-level=3", "-Ctarget-feature=+sse4", ]
+    rustflags = [ "-Copt-level=3", "-Ctarget-feature=+sse4.2", ]
   } else {
-    rustflags = [ "-Copt-level=3", "-Ctarget-feature=+sse4", ]
+    rustflags = [ "-Copt-level=3", "-Ctarget-feature=+sse4.2", ]
   }
   ldflags = common_optimize_on_ldflags
 }
@@ -2233,7 +2233,7 @@ config("optimize_max") {
     } else {
       cflags = [ "-O3" ] + common_optimize_on_cflags
     }
-    rustflags = [ "-Copt-level=3", "-Ctarget-feature=+sse4", ]
+    rustflags = [ "-Copt-level=3", "-Ctarget-feature=+sse4.2", ]
   }
 }
 
@@ -2266,7 +2266,7 @@ config("optimize_speed") {
     } else {
       cflags = [ "-O3" ] + common_optimize_on_cflags
     }
-    rustflags = [ "-Copt-level=3", "-Ctarget-feature=+sse4", ]
+    rustflags = [ "-Copt-level=3", "-Ctarget-feature=+sse4.2", ]
   }
 }
 
@@ -2509,7 +2509,7 @@ config("symbols") {
       ]
     }
   }
-  rustflags = [ "-g0", "-Copt-level=3", "-Ctarget-feature=+sse4", ]
+  rustflags = [ "-g0", "-Copt-level=3", "-Ctarget-feature=+sse4.2", ]
 }
 
 # Minimal symbols.
@@ -2582,7 +2582,7 @@ config("minimal_symbols") {
 
     asmflags = cflags
   }
-  rustflags = [ "-Cdebuginfo=1", "-Copt-level=3", "-Ctarget-feature=+sse4", ]
+  rustflags = [ "-Cdebuginfo=1", "-Copt-level=3", "-Ctarget-feature=+sse4.2", ]
 }
 
 # This configuration contains function names only. That is, the compiler is

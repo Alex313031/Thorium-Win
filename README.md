@@ -13,7 +13,7 @@ IMPORTANT: This repo only hosts Windows builds.
 - Intended to behave the most like Google Chrome, with differences listed below. \
 - I release Thorium as an installer and a portable .zip. Intructions are in readme in zip file.
 
-AVX2 Builds are now being served at https://github.com/Alex313031/Thorium-AVX2
+AVX2 Builds are now being served at https://github.com/Alex313031/Thorium-AVX2 &nbsp;<img src="https://github.com/Alex313031/Thorium/blob/main/logos/STAGING/AVX2.png" width="48">
 
 ## Building <img src="https://github.com/Alex313031/Thorium/blob/main/logos/NEW/build_light.svg#gh-dark-mode-only"> <img src="https://github.com/Alex313031/Thorium/blob/main/logos/NEW/build_dark.svg#gh-light-mode-only">
 

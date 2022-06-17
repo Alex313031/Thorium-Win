@@ -654,12 +654,12 @@ config("compiler") {
     # available disk space, 40GB and 100000 files.
     # cache_policy = "cache_size=10%:cache_size_bytes=40g:cache_size_files=100000"
 
-     # An import limit of 30 has better performance (per speedometer) and lower
+    # An import limit of 30 has better performance (per speedometer) and lower
     # binary size than the default setting of 100.
     # TODO(gbiv): We ideally shouldn't need to specify this; ThinLTO
     # should be able to better manage binary size increases on its own.
     import_instr_limit = 30
-    
+
     if (is_win) {
       ldflags += [
         "/opt:lldltojobs=all",
@@ -695,7 +695,7 @@ config("compiler") {
 
       # ldflags += [ "-Wl,--thinlto-cache-policy=$cache_policy" ]
 
-       if (is_chromeos) {
+      if (is_chromeos) {
         # ARM was originally set lower than x86 to keep the size
         # bloat of ThinLTO to <10%, but that's potentially no longer true.
         # FIXME(inglorion): maybe tune these?
@@ -838,7 +838,7 @@ config("compiler") {
     rustflags += [ "-Cembed-bitcode=no" ]
   }
   if (is_official_build) {
-    rustflags += [ "-Ccodegen-units=1", "-Copt-level=3", "-Ctarget-feature=+sse4.2", ]
+    rustflags += [ "-Ccodegen-units=1", "-Copt-level=3", "-Ctarget-feature=+sse4", ]
   }
 }
 
@@ -893,18 +893,18 @@ config("compiler_cpu_abi") {
   configs = []
   if (is_chromeos) {
     configs += [ "//build/config/chromeos:compiler_cpu_abi" ]
-  
+  }
 
   if ((is_posix && !is_apple) || is_fuchsia) {
     # CPU architecture. We may or may not be doing a cross compile now, so for
     # simplicity we always explicitly set the architecture.
-    if (current_cpu == "x64") {    
+    if (current_cpu == "x64") {
       cflags += [
         "-m64",
         "-O3",
-        "-msse4.2",
+        "-msse4",
       ]
-      ldflags += [ "-m64", "-Wl,-O3", "-msse4.2", "-Wl,-mllvm,-import-instr-limit=30", "-Wl,-mllvm,-import-hot-multiplier=30", "-Wl,-mllvm,-import-cold-multiplier=8", ]
+      ldflags += [ "-m64", "-Wl,-O3", "-msse4", "-Wl,-mllvm,-import-instr-limit=30", "-Wl,-mllvm,-import-hot-multiplier=30", "-Wl,-mllvm,-import-cold-multiplier=8", ]
     } else if (current_cpu == "x86") {
       cflags += [ "-m32" ]
       ldflags += [ "-m32" ]
@@ -915,11 +915,16 @@ config("compiler_cpu_abi") {
           "-msse3",
         ]
       }
+    } else if (target_cpu == "arm64") {
+      if (!is_android && !is_nacl) {
+        cflags += [ "-Wno-unused-command-line-argument", ]
+        ldflags += [ "-Wno-unused-command-line-argument", ]
+      }
     } else if (current_cpu == "arm") {
       if (is_clang && !is_android && !is_nacl &&
           !(is_chromeos_lacros && is_chromeos_device)) {
-        cflags += [ "--target=arm-linux-gnueabihf", "-O3", ]
-        ldflags += [ "--target=arm-linux-gnueabihf", "-Wl,-O3", ]
+        cflags += [ "--target=arm-linux-gnueabihf", "-O3", "-Wno-unused-command-line-argument", ]
+        ldflags += [ "--target=arm-linux-gnueabihf", "-Wl,-O3", "-Wno-unused-command-line-argument", ]
       }
       if (!is_nacl) {
         cflags += [
@@ -933,8 +938,8 @@ config("compiler_cpu_abi") {
     } else if (current_cpu == "arm64") {
       if (is_clang && !is_android && !is_nacl && !is_fuchsia &&
           !(is_chromeos_lacros && is_chromeos_device)) {
-        cflags += [ "--target=aarch64-linux-gnu", "-O3", ]
-        ldflags += [ "--target=aarch64-linux-gnu", "-Wl,-O3", ]
+        cflags += [ "--target=aarch64-linux-gnu", "-O3", "-Wno-unused-command-line-argument", ]
+        ldflags += [ "--target=aarch64-linux-gnu", "-Wl,-O3", "-Wno-unused-command-line-argument", ]
       }
       if (is_android) {
         # Outline atomics crash on Exynos 9810. http://crbug.com/1272795
@@ -946,10 +951,10 @@ config("compiler_cpu_abi") {
       if (custom_toolchain == "") {
         if (is_clang) {
           if (is_android) {
-            cflags += [ "--target=mipsel-linux-android" ]
+            cflags += [ "--target=mipsel-linux-android", "-O3", ]
             ldflags += [ "--target=mipsel-linux-android" ]
           } else {
-            cflags += [ "--target=mipsel-linux-gnu" ]
+            cflags += [ "--target=mipsel-linux-gnu", "-O3", ]
             ldflags += [ "--target=mipsel-linux-gnu" ]
           }
         } else {
@@ -1966,7 +1971,6 @@ config("no_incompatible_pointer_warnings") {
     "-mllvm", "-unroll-runtime-multi-exit",
     "-mllvm", "-aggressive-ext-opt",
     "/O3",
-    "-msse4.2",
     "/clang:-O3",
     "/clang:-msse4.2",
     "-Xclang", "-O3",
@@ -2018,7 +2022,6 @@ if (is_win) {
     "-mllvm", "-aggressive-ext-opt",
     "/O3",
     "/clang:-O3",
-    "-msse4.2",
     "/clang:-msse4.2",
     "-Xclang", "-O3",
   ]
@@ -2183,9 +2186,9 @@ config("optimize") {
     cflags = [ "-O3" ] + common_optimize_on_cflags
   }
   if (optimize_for_size) {
-    rustflags = [ "-Copt-level=3", "-Ctarget-feature=+sse4.2", ]
+    rustflags = [ "-Copt-level=3", "-Ctarget-feature=+sse4", ]
   } else {
-    rustflags = [ "-Copt-level=3", "-Ctarget-feature=+sse4.2", ]
+    rustflags = [ "-Copt-level=3", "-Ctarget-feature=+sse4", ]
   }
   ldflags = common_optimize_on_ldflags
 }
@@ -2253,7 +2256,7 @@ config("optimize_max") {
     } else {
       cflags = [ "-O3" ] + common_optimize_on_cflags
     }
-    rustflags = [ "-Copt-level=3", "-Ctarget-feature=+sse4.2", ]
+    rustflags = [ "-Copt-level=3", "-Ctarget-feature=+sse4", ]
   }
 }
 
@@ -2286,7 +2289,7 @@ config("optimize_speed") {
     } else {
       cflags = [ "-O3" ] + common_optimize_on_cflags
     }
-    rustflags = [ "-Copt-level=3", "-Ctarget-feature=+sse4.2", ]
+    rustflags = [ "-Copt-level=3", "-Ctarget-feature=+sse4", ]
   }
 }
 
@@ -2529,7 +2532,7 @@ config("symbols") {
       ]
     }
   }
-  rustflags = [ "-g0", "-Copt-level=3", "-Ctarget-feature=+sse4.2", ]
+  rustflags = [ "-g0", "-Copt-level=3", "-Ctarget-feature=+sse4", ]
 }
 
 # Minimal symbols.
@@ -2602,7 +2605,7 @@ config("minimal_symbols") {
 
     asmflags = cflags
   }
-  rustflags = [ "-Cdebuginfo=1", "-Copt-level=3", "-Ctarget-feature=+sse4.2", ]
+  rustflags = [ "-Cdebuginfo=1", "-Copt-level=3", "-Ctarget-feature=+sse4", ]
 }
 
 # This configuration contains function names only. That is, the compiler is

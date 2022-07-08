@@ -135,7 +135,6 @@ config("compiler") {
         "/O3",
         "-msse4",
         "/clang:-O3",
-        "/clang:-msse4",
         "-Xclang", "-O3",
         "-Wno-unused-command-line-argument",
       ]

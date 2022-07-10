@@ -1961,7 +1961,6 @@ config("no_incompatible_pointer_warnings") {
     "-mllvm", "-aggressive-ext-opt",
     "/O3",
     "/clang:-O3",
-    "/clang:-msse4",
     "-Xclang", "-O3",
   ]
 
@@ -2011,7 +2010,6 @@ if (is_win) {
     "-mllvm", "-aggressive-ext-opt",
     "/O3",
     "/clang:-O3",
-    "/clang:-msse4",
     "-Xclang", "-O3",
   ]
 

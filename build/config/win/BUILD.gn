@@ -112,16 +112,16 @@ config("compiler") {
       if (host_cpu == "x86" || host_cpu == "x64") {
         cflags += [ "-m32" ]
       } else {
-        cflags += [ "--target=i386-windows" ]
+        cflags += [ "--target=i386-windows", "/O3", "/clang:-O3", "-Xclang", "-O3", "-Wno-unused-command-line-argument", ]
       }
     } else if (current_cpu == "x64") {
       if (host_cpu == "x86" || host_cpu == "x64") {
         cflags += [ "-m64" ]
       } else {
-        cflags += [ "--target=x86_64-windows" ]
+        cflags += [ "--target=x86_64-windows", "/O3", "/clang:-O3", "-Xclang", "-O3", "-Wno-unused-command-line-argument", ]
       }
     } else if (current_cpu == "arm64") {
-      cflags += [ "--target=arm64-windows" ]
+      cflags += [ "--target=arm64-windows", "/O3", "/clang:-O3", "-Xclang", "-O3", "-Wno-unused-command-line-argument", ]
     } else {
       assert(false, "unknown current_cpu " + current_cpu)
     }
@@ -133,7 +133,7 @@ config("compiler") {
     if (current_cpu == "x86" || current_cpu == "x64") {
       cflags += [
         "/O3",
-        "-msse4",
+        "-msse3",
         "/clang:-O3",
         "-Xclang", "-O3",
         "-Wno-unused-command-line-argument",
@@ -196,7 +196,6 @@ config("compiler") {
       "/INCREMENTAL:NO",
       "/FIXED:NO",
       "/OPT:lldlto=3",
-      "-mllvm:-march=sandybridge",
     ]
 
     if (use_lld) {

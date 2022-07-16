@@ -552,6 +552,13 @@ config("compiler") {
         ldflags += [ "-Wl,-mllvm,-instcombine-lower-dbg-declare=0" ]
       }
     }
+    
+    # TODO(crbug.com/1235145): Investigate why/if this should be needed.
+    if (is_win) {
+      cflags += [ "/clang:-ffp-contract=off" ]
+    } else {
+      cflags += [ "-ffp-contract=off" ]
+    }
   }
   
   # Rust compiler setup (for either clang or rustc).
@@ -818,7 +825,7 @@ config("compiler") {
     rustflags += [ "-Cembed-bitcode=no" ]
   }
   if (is_official_build) {
-    rustflags += [ "-Ccodegen-units=1", "-Copt-level=3", "-Ctarget-feature=+sse4,+aes,+avx", ]
+    rustflags += [ "-Ccodegen-units=1", "-Copt-level=3", "-Ctarget-feature=+sse4", ]
   }
 }
 
@@ -882,10 +889,9 @@ config("compiler_cpu_abi") {
       cflags += [
         "-m64",
         "-O3",
-        "-mavx",
-        "-maes",
+        "-msse4",
       ]
-      ldflags += [ "-m64", "-Wl,-O3", "-mavx", "-maes", "-Wl,-mllvm,-import-instr-limit=30", "-Wl,-mllvm,-import-hot-multiplier=30", "-Wl,-mllvm,-import-cold-multiplier=8", ]
+      ldflags += [ "-m64", "-Wl,-O3", "-msse4", "-Wl,-mllvm,-import-instr-limit=30", "-Wl,-mllvm,-import-hot-multiplier=30", "-Wl,-mllvm,-import-cold-multiplier=8", ]
     } else if (current_cpu == "x86") {
       cflags += [ "-m32" ]
       ldflags += [ "-m32" ]
@@ -898,8 +904,8 @@ config("compiler_cpu_abi") {
       }
     } else if (target_cpu == "arm64") {
       if (!is_android && !is_nacl) {
-        cflags += [ "-O3", "-Wno-unused-command-line-argument", ]
-        ldflags += [ "-Wl,-O3", "-Wno-unused-command-line-argument", ]
+        cflags += [ "-Wno-unused-command-line-argument", ]
+        ldflags += [ "-Wno-unused-command-line-argument", ]
       }
     } else if (current_cpu == "arm") {
       if (is_clang && !is_android && !is_nacl &&
@@ -1954,8 +1960,6 @@ config("no_incompatible_pointer_warnings") {
     "-mllvm", "-aggressive-ext-opt",
     "/O3",
     "/clang:-O3",
-    "/clang:-mavx",
-    "/clang:-maes",
     "-Xclang", "-O3",
   ]
 
@@ -2005,8 +2009,6 @@ if (is_win) {
     "-mllvm", "-aggressive-ext-opt",
     "/O3",
     "/clang:-O3",
-    "/clang:-mavx",
-    "/clang:-maes",
     "-Xclang", "-O3",
   ]
 
@@ -2170,9 +2172,9 @@ config("optimize") {
     cflags = [ "-O3" ] + common_optimize_on_cflags
   }
   if (optimize_for_size) {
-    rustflags = [ "-Copt-level=3", "-Ctarget-feature=+sse4,+aes,+avx", ]
+    rustflags = [ "-Copt-level=3", "-Ctarget-feature=+sse4", ]
   } else {
-    rustflags = [ "-Copt-level=3", "-Ctarget-feature=+sse4,+aes,+avx", ]
+    rustflags = [ "-Copt-level=3", "-Ctarget-feature=+sse4", ]
   }
   ldflags = common_optimize_on_ldflags
 }
@@ -2240,7 +2242,7 @@ config("optimize_max") {
     } else {
       cflags = [ "-O3" ] + common_optimize_on_cflags
     }
-    rustflags = [ "-Copt-level=3", "-Ctarget-feature=+sse4,+aes,+avx", ]
+    rustflags = [ "-Copt-level=3", "-Ctarget-feature=+sse4", ]
   }
 }
 
@@ -2273,7 +2275,7 @@ config("optimize_speed") {
     } else {
       cflags = [ "-O3" ] + common_optimize_on_cflags
     }
-    rustflags = [ "-Copt-level=3", "-Ctarget-feature=+sse4,+aes,+avx", ]
+    rustflags = [ "-Copt-level=3", "-Ctarget-feature=+sse4", ]
   }
 }
 
@@ -2515,7 +2517,7 @@ config("symbols") {
       ]
     }
   }
-  rustflags = [ "-g0", "-Copt-level=3", "-Ctarget-feature=+sse4,+aes,+avx", ]
+  rustflags = [ "-g0", "-Copt-level=3", "-Ctarget-feature=+sse4", ]
 }
 
 # Minimal symbols.
@@ -2587,7 +2589,7 @@ config("minimal_symbols") {
 
     asmflags = cflags
   }
-  rustflags = [ "-Cdebuginfo=1", "-Copt-level=3", "-Ctarget-feature=+sse4,+aes,+avx", ]
+  rustflags = [ "-Cdebuginfo=1", "-Copt-level=3", "-Ctarget-feature=+sse4", ]
 }
 
 # This configuration contains function names only. That is, the compiler is

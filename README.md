@@ -17,7 +17,7 @@ AVX2 Builds are now being served at https://github.com/Alex313031/Thorium-AVX2 &
 
 ## Building <img src="https://github.com/Alex313031/Thorium/blob/main/logos/NEW/build_light.svg#gh-dark-mode-only"> <img src="https://github.com/Alex313031/Thorium/blob/main/logos/NEW/build_dark.svg#gh-light-mode-only">
 
-For building yourself, follow instructions at https://github.com/Alex313031/Thorium/blob/main/misc/WIN_INSTRUCTIONS (if building natively on Windows), OR https://github.com/Alex313031/Thorium/blob/main/misc/WIN_CROSS_BUILD_INSTRUCTIONS (if cross building for Windows on Linux).
+For building yourself, follow instructions at https://github.com/Alex313031/Thorium/blob/main/docs/WIN_INSTRUCTIONS (if building natively on Windows), OR https://github.com/Alex313031/Thorium/blob/main/docs/WIN_CROSS_BUILD_INSTRUCTIONS (if cross building for Windows on Linux).
 
 *Thanks for using Thorium!*
 

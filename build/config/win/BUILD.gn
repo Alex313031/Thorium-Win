@@ -134,6 +134,7 @@ config("compiler") {
       cflags += [
         "/O3",
         "-msse3",
+        "/clang:-msse3",
         "/clang:-O3",
         "-Xclang", "-O3",
         "-Wno-unused-command-line-argument",

@@ -365,7 +365,7 @@ config("compiler") {
   if ((is_posix && !is_apple) || is_fuchsia) {
     if (enable_profiling) {
       if (!is_debug) {
-        cflags += [ "-g0" ]
+        cflags += [ "-g" ]
 
         if (enable_full_stack_frames_for_profiling) {
           cflags += [
@@ -411,7 +411,7 @@ config("compiler") {
       }
     }
   }
-  
+
   # Apple compiler flags setup.
   # ---------------------------------
   if (is_apple) {
@@ -551,7 +551,7 @@ config("compiler") {
       cflags += [ "-ffp-contract=off" ]
     }
   }
-  
+
   # Rust compiler setup (for either clang or rustc).
   if (enable_rust) {
     defines += [ "RUST_ENABLED" ]
@@ -895,8 +895,8 @@ config("compiler_cpu_abi") {
       }
     } else if (target_cpu == "arm64") {
       if (!is_android && !is_nacl) {
-        cflags += [ "-Wno-unused-command-line-argument", ]
-        ldflags += [ "-Wno-unused-command-line-argument", ]
+        cflags += [ "-O3", "-Wno-unused-command-line-argument", ]
+        ldflags += [ "-Wl,-O3", "-Wno-unused-command-line-argument", ]
       }
     } else if (current_cpu == "arm") {
       if (is_clang && !is_android && !is_nacl &&
@@ -1533,7 +1533,7 @@ config("default_warnings") {
         # TODO(thakis): Only for no_chromium_code? http://crbug.com/912662
         "-Wno-ignored-pragma-optimize",
       ]
-      
+
       if (!is_nacl) {
         cflags += [
           # TODO(https://crbug.com/1300731) Clean up and enable.
@@ -1939,6 +1939,7 @@ config("no_incompatible_pointer_warnings") {
     "-mllvm", "-aggressive-ext-opt",
     "/O3",
     "/clang:-O3",
+    "/clang:-msse4",
     "-Xclang", "-O3",
   ]
 
@@ -1988,6 +1989,7 @@ if (is_win) {
     "-mllvm", "-aggressive-ext-opt",
     "/O3",
     "/clang:-O3",
+    "/clang:-msse4",
     "-Xclang", "-O3",
   ]
 
@@ -2389,7 +2391,7 @@ config("symbols") {
       cflags += [ "-gcodeview-ghash" ]
       ldflags = [ "/DEBUG:GHASH" ]
     } else {
-      ldflags = [ "/DEBUG:NONE" ]
+      ldflags = [ "/DEBUG" ]
     }
 
     # All configs using /DEBUG should include this:
@@ -2423,7 +2425,7 @@ config("symbols") {
     # flag, so we can use use -g1 for pnacl and nacl-clang compiles.
     # gcc nacl is is_nacl && !is_clang, pnacl and nacl-clang are && is_clang.
     if ((!is_nacl || is_clang) && current_os != "zos") {
-      cflags += [ "-g0" ]
+      cflags += [ "-g2" ]
     }
 
     if (!is_nacl && is_clang && !is_tsan && !is_asan) {
@@ -2440,7 +2442,7 @@ config("symbols") {
     }
 
     if (is_apple) {
-      swiftflags = [ "-g0" ]
+      swiftflags = [ "-g" ]
     }
 
     if (use_debug_fission) {
@@ -2511,7 +2513,7 @@ config("minimal_symbols") {
       cflags += [ "-gcodeview-ghash" ]
       ldflags = [ "/DEBUG:GHASH" ]
     } else {
-      ldflags = [ "/DEBUG:NONE" ]
+      ldflags = [ "/DEBUG" ]
     }
 
     # All configs using /DEBUG should include this:
@@ -2547,7 +2549,7 @@ config("minimal_symbols") {
     # flag, so we can use use -g1 for pnacl and nacl-clang compiles.
     # gcc nacl is is_nacl && !is_clang, pnacl and nacl-clang are && is_clang.
     if (!is_nacl || is_clang) {
-      cflags += [ "-g0" ]
+      cflags += [ "-g1" ]
     }
 
     if (!is_nacl && is_clang && !is_tsan && !is_asan) {

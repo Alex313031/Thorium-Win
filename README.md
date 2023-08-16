@@ -1,4 +1,4 @@
-![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/alex313031/thorium-win?label=Version%3A) &nbsp;![GitHub](https://img.shields.io/github/license/alex313031/thorium?color=green&label=License%3A) &nbsp;![GitHub commit activity](https://img.shields.io/github/commit-activity/w/alex313031/thorium?color=blueviolet&label=Commit%20Activity%3A) &nbsp;![Subreddit subscribers](https://img.shields.io/reddit/subreddit-subscribers/ChromiumBrowser?style=social)
+![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/alex313031/thorium-win?label=Version%3A) &nbsp;![GitHub](https://img.shields.io/github/license/alex313031/thorium-win?color=green&label=License%3A) &nbsp;![GitHub commit activity](https://img.shields.io/github/commit-activity/w/alex313031/thorium?color=blueviolet&label=Commit%20Activity%3A) &nbsp;![Subreddit subscribers](https://img.shields.io/reddit/subreddit-subscribers/ChromiumBrowser?style=social)
 
 # Thorium for Windows <img src="https://github.com/Alex313031/Thorium/blob/main/logos/STAGING/winflag_animated.gif" width="64">
 

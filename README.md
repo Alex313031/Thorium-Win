@@ -3,7 +3,7 @@
 # Thorium for Windows <img src="https://github.com/Alex313031/Thorium/blob/main/logos/STAGING/winflag_animated.gif" width="64">
 
 __Repo to serve Windows builds of [Thorium](https://github.com/Alex313031/Thorium)!__ \
-__*IMPORTANT: PLEASE USE THE NEW WINDOWS 7/8 REPO HERE FOR WINDOWS 7/8/8.1 RELEASES* > https://github.com/Alex313031/thorium-win7__ 
+__*IMPORTANT: PLEASE USE THE NEW WINDOWS 7/8 REPO HERE FOR WINDOWS 7/8/8.1 RELEASES* > https://github.com/Alex313031/thorium-win7__ \
 __*NEW:* AVX2 Builds are now being served at https://github.com/Alex313031/Thorium-AVX2__ &nbsp;<img src="https://github.com/Alex313031/Thorium/blob/main/logos/STAGING/AVX2.png" width="48">
 
 <img src="https://github.com/Alex313031/Thorium-Win/blob/main/ThoriumLogo.png">

@@ -22,6 +22,8 @@ Raspberry Pi (ARM64) builds are here > https://github.com/Alex313031/Thorium-Ras
 
 Builds for Windows 7/8/8.1 are here > https://github.com/Alex313031/thorium-win7 \
 
+Windows on ARM (arm64) builds are here > https://github.com/Alex313031/Thorium-WOA \
+
 Special repo which serves builds for SSE3, SSE4, and 32 bit builds are here > https://github.com/Alex313031/Thorium-Special \
 
 Another related project I'm trying to share is ThoriumOS : ChromiumOS builds with Thorium, Widevine, Google Sync, Google Drive, Kernel 5.15, firmware, and extra packages > https://github.com/Alex313031/ThoriumOS

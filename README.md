@@ -4,6 +4,7 @@
 
 __Repo to serve Windows builds of [Thorium](https://github.com/Alex313031/Thorium)!__ \
 __*IMPORTANT: PLEASE USE THE NEW WINDOWS 7/8 REPO HERE FOR WINDOWS 7/8/8.1 RELEASES* > https://github.com/Alex313031/thorium-win7__ \
+__*IMPORTANT: These builds require [AVX](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions)! SSE3 builds for older processors will either be here with "SSE3" in the name, or in the [Thorium-SSE3 repo](https://github.com/Alex313031/Thorium-SSE3/releases), where I put the Linux SSE3 releases.*__ \
 __*NEW:* AVX2 Builds are now being served at https://github.com/Alex313031/Thorium-AVX2__ &nbsp;<img src="https://github.com/Alex313031/Thorium/blob/main/logos/STAGING/AVX2.png" width="48">
 
 <img src="https://github.com/Alex313031/Thorium-Win/blob/main/ThoriumLogo.png">

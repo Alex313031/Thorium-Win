@@ -32,7 +32,7 @@ Another related project I'm trying to share is ThoriumOS : ChromiumOS builds wit
 
 - Always built with the latest stable version of [Chromium](https://www.chromium.org/).
 - Intended to behave like and have the featureset of Google Chrome, with differences/patches/enhancements listed [Here](https://github.com/Alex313031/Thorium#features--differences-between-chromium-and-thorium--).
-- I release Thorium as an .exe installer and a portable .zip. Portable intructions are in the Readme in the zip file.
+- I release Thorium as an .exe installer and a portable .zip. Portable instructions are in the Readme in the zip file.
 
 ## Building <img src="https://github.com/Alex313031/Thorium/blob/main/logos/NEW/build_light.svg#gh-dark-mode-only"> <img src="https://github.com/Alex313031/Thorium/blob/main/logos/NEW/build_dark.svg#gh-light-mode-only">
 For building yourself, follow instructions at [BUILDING_WIN.md](https://github.com/Alex313031/thorium/blob/main/docs/BUILDING_WIN.md) (if building natively on Windows), OR [BUILDING_WIN_CROSS.md](https://github.com/Alex313031/thorium/blob/main/docs/BUILDING_WIN_CROSS.md) (if cross building for Windows on Linux).
